@@ -21,32 +21,30 @@ import {
 } from 'react-native';
 
 const App = () => {
-  const [name, setName] = useState('Mash');
-  const [session, setSession] = useState({number: 6, title: 'state'});
+  const [name, setName] = useState('Style Test');
+
   const onClickHandler = () => {
-    setName('Programming with Mash');
-    setSession({number: 7, title: 'Style'});
+    setName('Style Test is Done');
   };
 
   return (
     <View style={styles.body}>
       <Text style={styles.text}> {name}</Text>
-      <Text style={styles.text}>
-        This is session number {session.number} and about {session.title}
-      </Text>
-      <Button title="Update State" onPress={onClickHandler}>
-        {}
-      </Button>
+      <Button title="Update State" onPress={onClickHandler}></Button>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   body: {
-    flex: 1,
+    width: '100%',
+    height: '50%',
     backgroundColor: '#FAEBD7',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 10,
+    borderColor: '#DC143C',
+    borderRadius: 10,
   },
 
   text: {
