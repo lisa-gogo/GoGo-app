@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 // import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -21,14 +21,20 @@ import {
 } from 'react-native';
 
 const App = () => {
+  const [name, setName] = useState('Mash');
+  const [session, setSession] = useState({number: 6, title: 'state'});
+  const onClickHandler = () => {
+    setName('Programming with Mash');
+    setSession({number: 7, title: 'Style'});
+  };
+
   return (
     <View style={styles.body}>
-      <Text style={styles.text}>Programming with Mash</Text>
-      <Button
-        title="youtube channel"
-        onPress={() => {
-          Linking.openURL('https://www.youtube.com/');
-        }}>
+      <Text style={styles.text}> {name}</Text>
+      <Text style={styles.text}>
+        This is session number {session.number} and about {session.title}
+      </Text>
+      <Button title="Update State" onPress={onClickHandler}>
         {}
       </Button>
     </View>
