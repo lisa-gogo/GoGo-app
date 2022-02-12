@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
   body: {
     flex: 1,
     backgroundColor: '#FAEBD7',
-    alignItems: 'stretch',
-    justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'space-around',
     borderWidth: 10,
     borderColor: '#DC143C',
     borderRadius: 10,
@@ -49,19 +49,22 @@ const styles = StyleSheet.create({
   },
 
   view1: {
-    flex: 2,
+    width: 100,
+    height: 100,
     backgroundColor: '#6495ED',
     alignItems: 'center',
     justifyContent: 'center',
   },
   view2: {
-    flex: 1,
+    width: 100,
+    height: 100,
     backgroundColor: '#FF00FF',
     alignItems: 'center',
     justifyContent: 'center',
   },
   view3: {
-    flex: 1,
+    width: 100,
+    height: 100,
     backgroundColor: '#00BFFF',
     alignItems: 'center',
     justifyContent: 'center',
