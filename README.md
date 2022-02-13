@@ -13,6 +13,9 @@ npx react-native run-android
 
 #### backend
 
+The database : postgresql
+The server : node and express
+
 ```
 cd backend
 
