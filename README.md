@@ -10,3 +10,11 @@ npm start
 npx react-native run-android
 
 ```
+
+#### backend
+
+```
+cd backend
+
+nodemon index
+```
