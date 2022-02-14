@@ -1,10 +1,15 @@
 CREATE DATABASE gogo;
 
-CREATE TABLE user(
+CREATE TABLE users(
   user_id SERIAL PRIMARY KEY,
-  description VARCHAR(255)
-  first_name VARCHAR(255),
-  last_name VARCHAR(255),
-  gender VARCHAR(6),
-  date_of_birth TIMESTAMP
-)
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  gender VARCHAR(6) NOT NULL,
+  date_of_birth TIMESTAMP NOT NULL,
+  job VARCHAR(255) NOT NULL,
+  health_condition VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  UNIQUE (email)
+  )
+;
