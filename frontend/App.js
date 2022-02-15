@@ -8,6 +8,7 @@
 
 import React from 'react';
 import {
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -27,22 +28,22 @@ import {
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import Login from './components/Login';
+import Register from './components/Register';
+import Main from './components/Main';
 
 const Stack = createStackNavigator();
 
-const ScreenA = () => {
-  return (
-    <View style={styles.body}>
-      <Text style={styles.text}> ScreenA </Text>
-    </View>
-  );
-};
+
+
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="ScreenA" component={ScreenA} />
+      <Stack.Navigator screenOptions={{header: () => null}}>
+        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
   );
