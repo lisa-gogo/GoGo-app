@@ -40,7 +40,9 @@ const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{header: () => null}}>
+      <Stack.Navigator
+      //  screenOptions={{header: () => null}}
+       >
         <Stack.Screen name="Main" component={Main} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
