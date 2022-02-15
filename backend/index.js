@@ -3,10 +3,34 @@ const app = express();
 const cors = require ('cors')
 const pool = require("./db")
 const bcrypt = require('bcrypt')
+const session = require ('express-session')
 
 // middleware 
 app.use(cors());
 app.use(express.json())// get json data 
+
+// session 
+app.use(
+  session({
+    // Key we want to keep secret which will encrypt all of our information
+    secret: "hello hello",
+    // Should we resave our session variables if nothing has changes which we dont
+    resave: false,
+    // Save empty value if there is no vaue which we do not want to do
+    saveUninitialized: false
+  })
+);
+
+const isAuth =(req,res,next)=>{
+   if(req.session.isAuth){
+       next()
+   }else{
+       res.redirect('/login')
+   }
+}
+
+
+//
 app.use(express.urlencoded({extended:false}))
 
 // ROUTES 
@@ -89,20 +113,25 @@ app.post("/users/login",async(req,res)=>{
                 
                   let isMatch = bcrypt.compare(password,result.rows[0].password) 
                   if(isMatch){
-                res.redirect("/users/dashboard")
+                  req.session.isAuth=true
+                  res.redirect("/users/dashboard")
                   }
               }
           }
-    )
-    
-    
-   
+    )  
     
 })
 //get a todo
 
-app.get("./users/dashboard", async (req,res)=>{
-    
+app.get("/users/dashboard", isAuth,async (req,res)=>{
+    res.json()
+})
+
+app.post("/users/logout",(req,res)=>{
+    req.session.destroy((err)=>{
+        if(err) throw err;
+        res.redirect('/')
+    })
 })
 
 //update a todo 
