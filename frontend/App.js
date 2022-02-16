@@ -37,7 +37,7 @@ const Stack = createStackNavigator();
 
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+ 
   return (
     <NavigationContainer>
       <Stack.Navigator
