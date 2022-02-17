@@ -13,7 +13,7 @@ import {
 import { TextInput } from 'react-native-gesture-handler';
 
 
-function Curise({navigation}) {
+function Cruise({navigation}) {
 
     const toLogin = () => {
         navigation.navigate('Login');
@@ -53,4 +53,4 @@ const styles = StyleSheet.create({
 
 
 
-export default Curise
+export default Cruise
