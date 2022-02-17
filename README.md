@@ -5,9 +5,7 @@
 ![Alt text](./native.png?raw=true "Title")
 
 ```
-cd todo_react_native_cli
-
-npm start
+cd frontend
 
 npx react-native run-android
 
@@ -23,3 +21,10 @@ cd backend
 
 nodemon index
 ```
+
+- [x] create users table in postgres
+- [ ] FontAwesome picture insert
+- [ ] React redux state manage
+- [ ] Curise Ship table
+- [ ] Hotel table
+- [ ] 'create one' font end page
