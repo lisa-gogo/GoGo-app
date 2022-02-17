@@ -22,9 +22,13 @@ cd backend
 nodemon index
 ```
 
-- [x] create users table in postgres
-- [ ] FontAwesome picture insert
+Frontend
+
+- [x] FontAwesome picture insert
 - [ ] React redux state manage
+- [ ] 'create one' font end page
+- [ ] Dashboard page
+      backend :
+- [x] create users table in postgres
 - [ ] Curise Ship table
 - [ ] Hotel table
-- [ ] 'create one' font end page

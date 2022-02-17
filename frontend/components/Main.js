@@ -36,18 +36,18 @@ function Main({navigation}) {
                 if(route.name === 'Curise'){
                    iconName = "ship";
                    size =focused? 25:20;
-                   color = focused ? '#ADD8E6':'#555';
+                   color = focused ? '#6495ED':'#555';
                 } else if (route.name === 'Hotel'){
-                    iconName ='bed-empty';
+                    iconName ="hotel";
                      size =focused? 25:20;
-                      color = focused ? '#ADD8E6':'#555';
+                      color = focused ? '#6495ED':'#555';
                 } else if (route.name === 'Create One') {
-                   iconName ='circle-plus';
+                   iconName ="address-card";
                     size =focused? 25:20;
-                     color = focused ? '#ADD8E6':'#555';
+                     color = focused ? '#6495ED':'#555';
                 };
                 return (
-                    <FontAwesome5 name={iconName} size={size} color={color}/>
+                    <FontAwesome5 name={iconName} size={size} color={color} solid/>
                 )
             }})}>
                 <Tab.Screen name="Curise" component={Curise} />
