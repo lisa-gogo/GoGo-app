@@ -16,7 +16,8 @@ import Hotel from './Hotel';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Dashboard from './Dashboard';
 
 
 
@@ -45,7 +46,11 @@ function Main({navigation}) {
                    iconName ="address-card";
                     size =focused? 25:20;
                      color = focused ? '#6495ED':'#555';
-                };
+                } else if (route.name === 'My Dashboard'){
+                  iconName= "clipboard-list";
+                  size =focused? 25:20;
+                  color = focused ? '#6495ED':'#555';
+                }
                 return (
                     <FontAwesome5 name={iconName} size={size} color={color} solid/>
                 )
@@ -53,6 +58,7 @@ function Main({navigation}) {
                 <Tab.Screen name="Curise" component={Curise} />
                 <Tab.Screen name="Hotel" component={Hotel} />
                 <Tab.Screen name="Create One" component={CreateOne} />
+                <Tab.Screen name="My Dashboard" component={Dashboard}/>
              </Tab.Navigator>
      
       );
