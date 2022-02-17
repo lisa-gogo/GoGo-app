@@ -1,6 +1,8 @@
 #### This project is made by react native cli
 
-#### This is travel app
+#### This is travel app. The idea is that some solo traveler can contact each other, so they can book curise ship room together, which charge two people price even there is only one person. Also
+
+#### they can book some hotel together.
 
 ![Alt text](./native.png?raw=true "Title")
 
