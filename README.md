@@ -28,7 +28,9 @@ Frontend
 - [ ] React redux state manage
 - [ ] 'create one' font end page
 - [ ] Dashboard page
-      backend :
+
+backend :
+
 - [x] create users table in postgres
 - [ ] Curise Ship table
 - [ ] Hotel table
