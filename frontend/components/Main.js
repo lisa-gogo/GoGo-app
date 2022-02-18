@@ -19,6 +19,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Dashboard from './Dashboard';
+import { black } from 'react-native-paper/lib/typescript/styles/colors';
 
 
 
@@ -38,25 +39,22 @@ function Main({navigation}) {
                 let iconName;
                 if(route.name === 'Cruise Ship'){
                    iconName = "ship";
-                   size =focused? 20:18;
-                   color = focused ? 'white':'#FFC0CB';
+                   size =focused? 22:18;
+                  //  color = focused ? 'white':'#FFC0CB';
                 } else if (route.name === 'Hotel'){
                     iconName ="hotel";
-                     size =focused? 20:18;
-                      color = focused ? 'white':'#FFC0CB';
+                     size =focused? 22:18;  
                 } else if (route.name === 'Create One') {
                    iconName ="plus-circle";
-                    size =focused? 20:18;
-                     color = focused ? 'white':'#FFC0CB';
+                    size =focused? 22:18;  
                 } else if (route.name === 'My Dashboard'){
                   iconName= "clipboard-list";
-                  size =focused? 20:18;
-                  color = focused ? 'white':'#FFC0CB';
+                  size =focused? 22:18;
                 }
                 return (
-                    <FontAwesome5 name={iconName} size={size} color={color} solid/>
+                    <FontAwesome5 name={iconName} size={size} color='black' solid/>
                 )
-        },  tabBarColor:'#C71585', tabBarLabelStyle: {fontSize:10}})}  >
+        },  tabBarColor:'pink', tabBarLabelStyle: {fontSize:10,color:'black'}})}  >
                 <Tab.Screen name="Cruise Ship" component={Cruise} />
                 <Tab.Screen name="Hotel" component={Hotel} />
                 <Tab.Screen name="Create One" component={CreateOne} />

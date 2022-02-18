@@ -27,7 +27,7 @@ Frontend
 - [x] FontAwesome picture insert
 - [ ] React redux state manage
 - [ ] 'create one' font end page
-- [ ] Dashboard page - [x] page link
+- [x] Dashboard page - [x] page link
 
 backend :
 

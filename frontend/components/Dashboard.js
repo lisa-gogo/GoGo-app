@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react'
 import {
   Pressable,
@@ -10,14 +11,22 @@ import {
   View,
 } from 'react-native';
 
-import { TextInput } from 'react-native-gesture-handler';
 
-function Dashboard() {
+import {createDrawerNavigator} from '@react-navigation/drawer'
+import CruiseDashboard from './Dashboard/CruiseDashboard';
+import HotelDashboard from './Dashboard/HotelDashboard';
+
+ const Drawer = createDrawerNavigator();
+
+ function Dashboard() {
+   
   return (
-    <View>
-        <Text>hello</Text>
-    </View>
+          <Drawer.Navigator >
+                <Drawer.Screen name="Your cruises" component={CruiseDashboard} />
+                <Drawer.Screen name="Your hotels" component={HotelDashboard} />
+            </Drawer.Navigator>
+  
   )
-}
+  }
 
 export default Dashboard
