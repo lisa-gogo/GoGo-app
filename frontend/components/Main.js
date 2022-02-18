@@ -39,23 +39,27 @@ function Main({navigation}) {
                 let iconName;
                 if(route.name === 'Cruise Ship'){
                    iconName = "ship";
-                   size =focused? 22:18;
+                   size =focused? 23:20;
+                   color='white';
                   //  color = focused ? 'white':'#FFC0CB';
                 } else if (route.name === 'Hotel'){
                     iconName ="hotel";
-                     size =focused? 22:18;  
+                     size =focused? 23:20;  
+                     color="white";
                 } else if (route.name === 'Create One') {
                    iconName ="plus-circle";
-                    size =focused? 22:18;  
+                    size =focused? 23:20; 
+                    color="white"; 
                 } else if (route.name === 'My Dashboard'){
                   iconName= "clipboard-list";
-                  size =focused? 22:18;
+                  size =focused? 23:20;
+                  color='white';
                 }
                 return (
-                    <FontAwesome5 name={iconName} size={size} color='black' solid/>
+                    <FontAwesome5 name={iconName} size={size} color={color} />
                 )
-        },  tabBarColor:'pink', tabBarLabelStyle: {fontSize:10,color:'black'}})}  >
-                <Tab.Screen name="Cruise Ship" component={Cruise} />
+        }, tabBarColor:'#282828', tabBarInactiveTintColor:'black'})} >
+                <Tab.Screen  name="Cruise Ship" component={Cruise} />
                 <Tab.Screen name="Hotel" component={Hotel} />
                 <Tab.Screen name="Create One" component={CreateOne} />
                 <Tab.Screen name="My Dashboard" component={Dashboard}/>
