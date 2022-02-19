@@ -20,6 +20,7 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Dashboard from './Dashboard';
 import { black } from 'react-native-paper/lib/typescript/styles/colors';
+import GlobalStyles from '../utils/GlobalStyles';
 
 
 
@@ -58,7 +59,7 @@ function Main({navigation}) {
                 return (
                     <FontAwesome5 name={iconName} size={size} color={color} />
                 )
-        }, tabBarColor:'#282828', tabBarInactiveTintColor:'black'})} >
+        }, tabBarColor:'#DC143C', tabBarInactiveTintColor:'black'})} >
                 <Tab.Screen  name="Cruise Ship" component={Cruise} />
                 <Tab.Screen name="Hotel" component={Hotel} />
                 <Tab.Screen name="Create One" component={CreateOne} />
@@ -79,15 +80,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 40,
     margin: 10,
-  },
-  button: {
-      fontSize: 30,
-      margin: 5,
-      color: 'white',
-      backgroundColor:'#1E90FF',
-      textAlign: 'center',
-      width: 100,
-       
   },
 });
 

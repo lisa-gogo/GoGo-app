@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import {
   Pressable,
   SafeAreaView,
@@ -8,30 +8,74 @@ import {
   Text,
   useColorScheme,
   View,
+  Image,
+  Alert
 } from 'react-native';
 
 import { } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler';
+import GlobalStyles from '../utils/GlobalStyles';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 function Login({navigation}) {
 
+    const [name, setName] = useState('')
+    const [password,setPassword] = useState('')
+
     const toRegister =()=>{
-        navigation.navigate('Register');
+       
+          navigation.navigate('Register');
+        
+ 
+    }
+
+        const toDashboard = async()=>{
+        if(name.length == 0 || password.length==0){
+          Alert.alert('Warning!','Please write all information ')
+        }else{
+         
+         try {
+           
+            await AsyncStorage.setItem('user',name)
+         } catch (error) {
+           console.log(error)
+         }
+          navigation.navigate('Cruise Ship');
+        }
+ 
     }
 
   return (
     <View style={styles.body}>
-      <Text style={styles.text}> username </Text>
-       <TextInput style={styles.input} placeholder='e.g Lisa'></TextInput>
+      <Image style={styles.logo}
+       source={require('../utils/logo.jpg')}
+      ></Image>
+      <Text style={styles.text}> username</Text>
+       <TextInput 
+       style={styles.input} 
+       placeholder='e.g Lisa'
+       onChangeText={(value)=>setName(value)}
+       ></TextInput>
        <Text style={styles.text}>password </Text>
-       <TextInput style={styles.input} placeholder='e.g Lisa'></TextInput>
-
+       <TextInput 
+              style={styles.input} 
+              placeholder='e.g Lisa'
+              onChangeText={(value)=>setPassword(value)}
+         ></TextInput>
         <Pressable
-        onPress={toRegister}
-        >
-        <Text style={styles.button}>Register</Text> 
+              onPress={toDashboard} 
+              style={GlobalStyles.globalButton}
+            >
+              <Text style={GlobalStyles.buttonText}>Login</Text> 
         </Pressable>
+        <Pressable
+            onPress={toRegister} 
+            style={GlobalStyles.globalButton}
+          >
+            <Text style={GlobalStyles.buttonText}>Register</Text> 
+        </Pressable>
+      
     </View>
       );
   
@@ -55,12 +99,12 @@ const styles = StyleSheet.create({
       height: 40,
       margin: 5,
   },
-  button: {
-      fontSize: 20,
-      margin: 5,
-      color: '#1E90FF',
-
-  }
+   logo: {
+     width:100,
+     height: 100,
+     margin: 20,
+     borderRadius: 10
+   }
 }); 
 
 export default Login;

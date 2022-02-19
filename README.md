@@ -27,7 +27,9 @@ Frontend
 - [x] FontAwesome picture insert
 - [ ] React redux state manage
 - [ ] 'create one' font end page
+- [x] Global Styles
 - [x] Dashboard page - [x] page link
+- [ ] Async Storage
 
 backend :
 

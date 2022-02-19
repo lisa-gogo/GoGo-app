@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState,useEffect}from 'react'
 import {
   Pressable,
   SafeAreaView,
@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 
 import { TextInput } from 'react-native-gesture-handler';
+import GlobalStyles from '../utils/GlobalStyles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 function Cruise({navigation}) {
@@ -18,13 +20,35 @@ function Cruise({navigation}) {
     const toLogin = () => {
         navigation.navigate('Login');
       };
+      // async storage ----start 
+       const [name, setName]=useState('')
+    
+    useEffect(()=>{
+      getData()
+    },[])
+
+
+     const getData=()=>{
+      try {
+        AsyncStorage.getItem('user')
+        .then(value=>{
+          if(value != null){
+            setName(value)
+          }
+        })
+      } catch (error) {
+        console.log(err)
+      }
+     }
+     // async storage end -------------
 
   return (
     <View>
+           <Text>Hello,{name}</Text>
            <Pressable
-            onPress={toLogin} style={styles.button}
+            onPress={toLogin} style={GlobalStyles.globalButton}
             >
-            <Text >Login</Text>
+            <Text style={GlobalStyles.buttonText}>Login</Text>
           </Pressable>
     </View>
   )
@@ -39,15 +63,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 40,
     margin: 10,
-  },
-  button: {
-      fontSize: 30,
-      margin: 5,
-      color: 'white',
-      backgroundColor:'#1E90FF',
-      textAlign: 'center',
-      width: 100,
-       
   },
 });
 

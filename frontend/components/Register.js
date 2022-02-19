@@ -12,6 +12,7 @@ import {
   View,
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+import GlobalStyles from '../utils/GlobalStyles';
 
 function Register() {
   return (
@@ -26,10 +27,10 @@ function Register() {
                      <Text style={styles.text}> Password </Text>
                      <TextInput style={styles.input} placeholder='e.g must over 6 characters'></TextInput>
                       <Pressable
-                        style={styles.button}
+                        style={GlobalStyles.globalButton}
                        >
-                      <Text style={styles.button}>Submit</Text> 
-        </Pressable>
+                      <Text style={GlobalStyles.buttonText}>Submit</Text> 
+                      </Pressable>
               </View>
               <View>
                    <Text style={styles.text}> Last Name </Text>

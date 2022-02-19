@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import { TextInput } from 'react-native-gesture-handler';
+import GlobalStyles from '../utils/GlobalStyles';
 
 function CreateOne({navigation}) {
 
@@ -21,9 +22,9 @@ function CreateOne({navigation}) {
   return (
     <View>
         <Pressable
-            onPress={toLogin} style={styles.button}
+            onPress={toLogin} style={GlobalStyles.globalButton}
             >
-            <Text >Login</Text>
+            <Text style={GlobalStyles.buttonText}>Login</Text>
           </Pressable>
          </View>
   )
@@ -40,15 +41,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     margin: 10,
   },
-  button: {
-      fontSize: 30,
-      margin: 5,
-      color: 'white',
-      backgroundColor:'#1E90FF',
-      textAlign: 'center',
-      width: 100,
-       
-  },
+  
 });
 
 export default CreateOne

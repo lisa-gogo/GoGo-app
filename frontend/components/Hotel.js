@@ -12,6 +12,7 @@ import {
 
 
 import { TextInput } from 'react-native-gesture-handler';
+import GlobalStyles from '../utils/GlobalStyles';
 
 
 function Hotel({navigation}) {
@@ -23,9 +24,9 @@ function Hotel({navigation}) {
   return (
     <View>
         <Pressable
-            onPress={toLogin} style={styles.button}
+            onPress={toLogin} style={GlobalStyles.globalButton}
             >
-            <Text >Login</Text>
+            <Text style={GlobalStyles.buttonText} >Login</Text>
           </Pressable>
      </View>
   )
