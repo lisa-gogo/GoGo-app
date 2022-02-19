@@ -40,16 +40,36 @@ function Cruise({navigation}) {
         console.log(err)
       }
      }
-     // async storage end -------------
+     // async storage------end -------------
+
+     // logout ------- start -----
+      const handleLogOut= async ()=>{
+      try {
+       await AsyncStorage.removeItem('user')
+        navigation.navigate('Login')
+        
+      } catch (error) {
+        console.log(err)
+      }
+     }
+     // logout ---------end-----
 
   return (
     <View>
            <Text>Hello,{name}</Text>
-           <Pressable
-            onPress={toLogin} style={GlobalStyles.globalButton}
-            >
-            <Text style={GlobalStyles.buttonText}>Login</Text>
-          </Pressable>
+           <View style={styles.loginLogOut}>
+                <Pressable
+              onPress={toLogin} style={GlobalStyles.globalButton}
+              >
+              <Text style={GlobalStyles.buttonText}>Login</Text>
+            </Pressable>
+            <Pressable
+              onPress={handleLogOut} style={GlobalStyles.globalButton}
+              >
+              <Text style={GlobalStyles.buttonText}>Logout</Text>
+            </Pressable>
+           </View>
+          
     </View>
   )
 }
@@ -64,6 +84,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     margin: 10,
   },
+  loginLogOut: {
+    flexDirection: "row",
+  }
 });
 
 

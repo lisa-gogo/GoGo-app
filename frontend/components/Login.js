@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React ,{useState,useEffect} from 'react'
 import {
   Pressable,
   SafeAreaView,
@@ -23,28 +23,57 @@ function Login({navigation}) {
     const [name, setName] = useState('')
     const [password,setPassword] = useState('')
 
-    const toRegister =()=>{
-       
+    const toRegister =()=>{    
           navigation.navigate('Register');
-        
- 
     }
 
-        const toDashboard = async()=>{
+    // AsyncStorage getItem starts first ------start --------
+     useEffect(()=>{
+      getData()
+    },[])
+
+
+     const getData=()=>{
+      try {
+        AsyncStorage.getItem('user')
+        .then(value=>{
+          if(value != null){
+            navigation.navigate('Cruise Ship')
+          }
+        })
+      } catch (error) {
+        console.log(err)
+      }
+     }
+
+
+    // Async --------------end --------------
+
+    // to criuse ship page ----- start 
+        const toCruises = async()=>{
         if(name.length == 0 || password.length==0){
           Alert.alert('Warning!','Please write all information ')
         }else{
          
          try {
-           
+            // we can store object 
+            ```
+            var user ={
+              name : name,
+              password : password
+            }
+            
+            await AsyncStorage.setItem('user',JSON.stringify(name))
+            ```
             await AsyncStorage.setItem('user',name)
          } catch (error) {
            console.log(error)
          }
           navigation.navigate('Cruise Ship');
         }
- 
     }
+
+    // to cruise ship page ---------end 
 
   return (
     <View style={styles.body}>
@@ -64,7 +93,7 @@ function Login({navigation}) {
               onChangeText={(value)=>setPassword(value)}
          ></TextInput>
         <Pressable
-              onPress={toDashboard} 
+              onPress={toCruises} 
               style={GlobalStyles.globalButton}
             >
               <Text style={GlobalStyles.buttonText}>Login</Text> 
