@@ -13,33 +13,34 @@ import {
 import { TextInput } from 'react-native-gesture-handler';
 import GlobalStyles from '../utils/GlobalStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useSelector} from 'react-redux';
 
 
 function Cruise({navigation}) {
-
+     const user = useSelector((state)=>state.user.value)
     const toLogin = () => {
         navigation.navigate('Login');
       };
       // async storage ----start 
        const [name, setName]=useState('')
     
-    useEffect(()=>{
-      getData()
-    },[])
+    // useEffect(()=>{
+    //   getData()
+    // },[])
 
 
-     const getData=()=>{
-      try {
-        AsyncStorage.getItem('user')
-        .then(value=>{
-          if(value != null){
-            setName(value)
-          }
-        })
-      } catch (error) {
-        console.log(err)
-      }
-     }
+    //  const getData=()=>{
+    //   try {
+    //     AsyncStorage.getItem('user')
+    //     .then(value=>{
+    //       if(value != null){
+    //         setName(value)
+    //       }
+    //     })
+    //   } catch (error) {
+    //     console.log(err)
+    //   }
+    //  }
      // async storage------end -------------
 
      // logout ------- start -----
@@ -56,8 +57,8 @@ function Cruise({navigation}) {
 
   return (
     <View>
-           <Text>Hello,{name}</Text>
-           <View style={styles.loginLogOut}>
+           <Text>Hello,{user.name}</Text>
+           <View style={GlobalStyles.loginLogOut}>
                 <Pressable
               onPress={toLogin} style={GlobalStyles.globalButton}
               >
@@ -84,9 +85,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     margin: 10,
   },
-  loginLogOut: {
-    flexDirection: "row",
-  }
+ 
 });
 
 

@@ -25,7 +25,7 @@ nodemon index
 Frontend
 
 - [x] FontAwesome picture insert
-- [ ] React redux state manage
+- [x] React redux tool kit
 - [ ] 'create one' font end page
 - [x] Global Styles
 - [x] Dashboard page - [x] page link

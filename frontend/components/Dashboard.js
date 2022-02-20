@@ -15,14 +15,15 @@ import {
 import {createDrawerNavigator} from '@react-navigation/drawer'
 import CruiseDashboard from './Dashboard/CruiseDashboard';
 import HotelDashboard from './Dashboard/HotelDashboard';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 
  const Drawer = createDrawerNavigator();
 
  function Dashboard({navigation,route}) {
 
      const [name, setName]=useState('')
-    
+   
     useEffect(()=>{
       getData()
     },[])

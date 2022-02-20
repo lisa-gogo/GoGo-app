@@ -13,21 +13,46 @@ import {
 
 import { TextInput } from 'react-native-gesture-handler';
 import GlobalStyles from '../utils/GlobalStyles';
+import {useSelector} from 'react-redux';
 
 
 function Hotel({navigation}) {
-
+    
+    const user = useSelector((state)=>state.user.value)
+   
     const toLogin = () => {
         navigation.navigate('Login');
       };
+    
+    const handleLogOut= async ()=>{
+    try {
+    await AsyncStorage.removeItem('user')
+      navigation.navigate('Login')
+      
+    } catch (error) {
+      console.log(err)
+    }
+  }
+
+   
 
   return (
     <View>
-        <Pressable
+       <Text>Hello, {user.name}</Text>
+       <View style={GlobalStyles.loginLogOut} >
+           <Pressable
             onPress={toLogin} style={GlobalStyles.globalButton}
             >
             <Text style={GlobalStyles.buttonText} >Login</Text>
           </Pressable>
+          <Pressable
+              onPress={handleLogOut} style={GlobalStyles.globalButton}
+              >
+              <Text style={GlobalStyles.buttonText}>Logout</Text>
+          </Pressable>
+       </View>
+      
+
      </View>
   )
 }

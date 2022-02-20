@@ -12,13 +12,16 @@ import {
   Alert
 } from 'react-native';
 
-import { } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler';
 import GlobalStyles from '../utils/GlobalStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage'
-
+import {useDispatch} from 'react-redux'
+import {login, logout} from '../redux/user'
 
 function Login({navigation}) {
+    
+    const dispatch = useDispatch()
+ 
 
     const [name, setName] = useState('')
     const [password,setPassword] = useState('')
@@ -56,15 +59,7 @@ function Login({navigation}) {
         }else{
          
          try {
-            // we can store object 
-            ```
-            var user ={
-              name : name,
-              password : password
-            }
-            
-            await AsyncStorage.setItem('user',JSON.stringify(name))
-            ```
+            dispatch(login({name:name,email:'lisa@gmail.com'}))
             await AsyncStorage.setItem('user',name)
          } catch (error) {
            console.log(error)

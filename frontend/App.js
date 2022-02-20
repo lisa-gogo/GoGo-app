@@ -27,27 +27,42 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+// import {createStackNavigator} from '@react-navigation/stack';
+import {createNativeStackNavigator} from'@react-navigation/native-stack';
 import Login from './components/Login';
 import Register from './components/Register';
 import Main from './components/Main';
+import { Provider } from 'react-redux';
 
-const Stack = createStackNavigator();
+import {configureStore} from '@reduxjs/toolkit';
+import userReducer from './redux/user';
 
 
+const Stack = createNativeStackNavigator();
+
+const store = configureStore({
+  reducer:{
+    user:userReducer,
+  },
+})
 
 const App = () => {
  
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-      //  screenOptions={{header: () => null}}
-       >
-        <Stack.Screen name="Main" component={Main} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-      </Stack.Navigator>
-    </NavigationContainer>
+      <Provider store={store}>
+            <NavigationContainer>
+            <Stack.Navigator
+            //  screenOptions={{header: () => null}}
+            >
+              <Stack.Screen name="Main" component={Main} />
+              <Stack.Screen name="Login" component={Login} />
+              <Stack.Screen name="Register" component={Register} />
+            </Stack.Navigator>
+          </NavigationContainer>
+      </Provider>
+     
+   
+    
   );
 };
 

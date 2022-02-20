@@ -16,5 +16,8 @@ export default StyleSheet.create({
         color:"white",
         padding:3
         
-    }
+    },
+    loginLogOut: {
+    flexDirection: "row",
+  }
 })
