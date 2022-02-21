@@ -37,12 +37,12 @@ app.use(express.urlencoded({extended:false}))
 
 app.post("/users/register", async (req, res) =>{
      
-        const { first_name, last_name, gender,date_of_birth, job, health_condition,email,password,password2} = req.body;
+        const { first_name, last_name, gender, job, health_condition,email,password,password2} = req.body;
         console.log(first_name)
 
         let error =[]
         
-        if(!first_name||!last_name||!gender||!date_of_birth||!job||!health_condition||!email||!password||!password2){
+        if(!first_name||!last_name||!gender||!job||!health_condition||!email||!password||!password2){
            error.push({message:"please enter all field"})
         }
 
@@ -73,8 +73,8 @@ app.post("/users/register", async (req, res) =>{
             });
             }else{
                     const newTodo = pool.query(
-                    "INSERT INTO users (first_name, last_name, gender, date_of_birth, job, health_condition,email,password) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
-                    [ first_name, last_name, gender,date_of_birth,  job, health_condition, email,hashedPassword],
+                    "INSERT INTO users (first_name, last_name, gender, job, health_condition,email,password) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+                    [ first_name, last_name, gender, job, health_condition, email,hashedPassword],
                     (err,results)=>{
                         if(err){
                             console.log(err)

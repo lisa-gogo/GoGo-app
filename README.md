@@ -29,6 +29,7 @@ Frontend
 - [ ] 'create one' font end page
 - [x] Global Styles
 - [x] Dashboard page - [x] page link
+- [x] Register Page - create user
 - [ ] Async Storage
 
 backend :
